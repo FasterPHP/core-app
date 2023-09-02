@@ -1,2 +1,2 @@
 # core-app
-Really simple app initialisation and config management
+Faster PHP app initialisation and config management

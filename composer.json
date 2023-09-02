@@ -1,0 +1,26 @@
+{
+    "name": "faster-php/core-app",
+    "description": "Faster PHP app initialisation and config management",
+    "type": "library",
+    "require": {
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Marcus Don",
+            "email": "marcus@sqldevelopment.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+	"autoload": {
+		"psr-4": {"FasterPhp\\CoreApp\\": "src/"}
+	},
+	"autoload-dev": {
+		"psr-4": {"FasterPhp\\CoreApp\\": "tests/"}
+	}
+}
