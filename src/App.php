@@ -162,6 +162,12 @@ class App
 			throw new Exception("Unknown/unsupported application env '$applicationEnv'");
 		}
 
+		if (defined('APPLICATION_ENV') && APPLICATION_ENV != $applicationEnv) {
+			throw new Exception("APPLICATION_ENV constant already set to '" . APPLICATION_ENV . "'");
+		} elseif (!defined('APPLICATION_ENV')) {
+			define('APPLICATION_ENV', $applicationEnv);
+		}
+
 		$this->_applicationEnv = $applicationEnv;
 	}
 
