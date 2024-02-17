@@ -20,7 +20,7 @@ class App
 	public const APPLICATIONENV_STAGING = 'staging';
 	public const APPLICATIONENV_PRODUCTION = 'production';
 
-	public const APPLICATIONS_ENVS = [
+	public const APPLICATION_ENVS = [
 		self::APPLICATIONENV_DEVELOPMENT,
 		self::APPLICATIONENV_TESTING,
 		self::APPLICATIONENV_BUILDING,
@@ -158,7 +158,7 @@ class App
 
 		if (empty($applicationEnv)) {
 			throw new Exception('APPLICATION_ENV not set');
-		} elseif (!in_array($applicationEnv, self::APPLICATIONS_ENVS)) {
+		} elseif (!in_array($applicationEnv, self::APPLICATION_ENVS)) {
 			throw new Exception("Unknown/unsupported application env '$applicationEnv'");
 		}
 
