@@ -157,7 +157,7 @@ class App
 		$applicationEnv = $this->_getEnvironmentConstant('APPLICATION_ENV');
 
 		if (empty($applicationEnv)) {
-			throw new Exception('APPLICATION_ENV not set');
+			$applicationEnv = self::APPLICATIONENV_PRODUCTION;
 		} elseif (!in_array($applicationEnv, self::APPLICATION_ENVS)) {
 			throw new Exception("Unknown/unsupported application env '$applicationEnv'");
 		}

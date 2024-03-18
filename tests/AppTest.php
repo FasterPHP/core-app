@@ -126,30 +126,6 @@ class AppTest extends TestCase
 	}
 
 	/**
-	 * Test application env not set.
-	 *
-	 * @return void
-	 */
-	public function testApplicationEnvNotSet(): void
-	{
-		if (!extension_loaded('runkit7')) {
-			$this->markTestSkipped('Skipping test because the runkit7 extension is not available.');
-		}
-		self::_clearVars();
-
-		// Note: Can't use expectException() because we don't get a chance to call _restoreVars()
-		try {
-			new App(dirname(__DIR__));
-		} catch (\FasterPhp\CoreApp\Exception $ex) {
-			$this->assertSame('APPLICATION_ENV not set', $ex->getMessage());
-			self::_restoreVars();
-			return;
-		}
-
-		$this->fail('Expected exception not thrown');
-	}
-
-	/**
 	 * Test application env not valid.
 	 *
 	 * @return void
@@ -185,6 +161,23 @@ class AppTest extends TestCase
 		$app = new App(dirname(__DIR__));
 
 		$this->assertSame(App::APPLICATIONENV_TESTING, $app->getApplicationEnv());
+	}
+
+	/**
+	 * Test application env defaults to production.
+	 *
+	 * @return void
+	 */
+	public function testApplicationEnvDefault(): void
+	{
+		if (!extension_loaded('runkit7')) {
+			$this->markTestSkipped('Skipping test because the runkit7 extension is not available.');
+		}
+		self::_clearVars();
+
+		$app = new App(dirname(__DIR__));
+
+		$this->assertSame(App::APPLICATIONENV_PRODUCTION, $app->getApplicationEnv());
 	}
 
 	/**
