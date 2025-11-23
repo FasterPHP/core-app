@@ -1,4 +1,4 @@
-# FasterPHP Core-App Architecture Guide
+# FasterPHP/CoreApp
 
 ## Overview
 
@@ -11,7 +11,7 @@ This library solves two fundamental problems in PHP application development:
 1. **Application Initialization**: Provides a standardized way to bootstrap PHP applications with proper environment detection and configuration
 2. **Configuration Management**: Offers a flexible, type-safe way to access hierarchical configuration data throughout your application
 
-## Architecture Components
+## Components
 
 The codebase consists of three main classes that work together to provide a complete application initialization and configuration system:
 
@@ -354,7 +354,7 @@ class ValidatedConfig extends Config {
         $this->validate($data);
         parent::__construct($data);
     }
-    
+
     private function validate(array $data): void {
         // Add validation logic
     }
